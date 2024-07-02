@@ -1,3 +1,6 @@
+/// <summary>
+/// Table BSB Book (ID 50100).
+/// </summary>
 table 50100 "BSB Book"
 {
     Caption = 'Book';
@@ -8,7 +11,6 @@ table 50100 "BSB Book"
         field(1; "No."; Code[20])
         {
             Caption = 'No.';
-            // NotBlank = true;
             NotBlank = true;
         }
         field(2; Dwscription; Text[100])

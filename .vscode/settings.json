@@ -10,5 +10,6 @@
         "${CodeCop}",
         "${UICop}",
         "${PerTenantExtensionCop}"
-    ]
+    ],
+    "editor.snippetSuggestions": "bottom"
 }

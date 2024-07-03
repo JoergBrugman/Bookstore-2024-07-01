@@ -1,3 +1,6 @@
+namespace GUA.Bookstore.Book;
+
+
 /// <summary>
 /// Table BSB Book (ID 50100).
 /// </summary>
@@ -5,6 +8,8 @@ table 50100 "BSB Book"
 {
     Caption = 'Book';
     DataClassification = ToBeClassified;
+    DataCaptionFields = "No.", Description;
+    LookupPageId = "BSB Book List";
 
     fields
     {
@@ -12,14 +17,20 @@ table 50100 "BSB Book"
         {
             Caption = 'No.';
             NotBlank = true;
+            ToolTip = 'Specifies the value of the No. field.', Comment = '%';
+
         }
-        field(2; Dwscription; Text[100])
+        field(2; Description; Text[100])
         {
-            Caption = 'Dwscription';
+            Caption = 'Description';
         }
         field(3; "Search Description"; Code[100])
         {
             Caption = 'Search Description';
+        }
+        field(4; Blocked; Boolean)
+        {
+            Caption = 'Blocked';
         }
         field(5; Type; Option)
         {
@@ -31,13 +42,13 @@ table 50100 "BSB Book"
         {
             Caption = 'Created';
             Editable = false;
-            //TODO Automatisch setzen
+            //[x] Automatisch setzen
         }
         field(8; "Last Date Modified"; Date)
         {
             Caption = 'Last Date Modified';
             Editable = false;
-            //[ ] Automatisch setzen
+            //[x] Automatisch setzen
         }
         field(10; Author; Text[50])
         {
@@ -75,4 +86,57 @@ table 50100 "BSB Book"
             Clustered = true;
         }
     }
+    var
+        OnDeleteBookErr: Label 'A book cannot be deleted';
+
+    trigger OnInsert()
+    begin
+        Created := Today;
+    end;
+
+    trigger OnModify()
+    begin
+        "Last Date Modified" := Today;
+    end;
+
+    trigger OnRename()
+    begin
+        "Last Date Modified" := Today;
+    end;
+
+    trigger OnDelete()
+    begin
+        Error(OnDeleteBookErr);
+    end;
+
+    //[x] Bücher dürfen nicht gelöscht
+    //TODO Neue Funktion "TestBlocked()"
+
+    procedure TestBlocked()
+    begin
+        TestField(Blocked, false);
+    end;
+
+    procedure ShowCard()
+    begin
+        // Page.RunModal(Page::"BSB Book Card", Rec);
+        ShowCard(Rec);
+    end;
+
+    local procedure ShowCard(BSBBook: Record "BSB Book")
+    begin
+        Page.RunModal(Page::"BSB Book Card", BSBBook);
+    end;
+
+    procedure ShowCard(BookNo: Code[20])
+    var
+        BSBBook: Record "BSB Book";
+    begin
+        if BookNo = '' then
+            exit;
+
+        BSBBook.Get(BookNo);
+        // Page.RunModal(Page::"BSB Book Card",BSBBook);
+        ShowCard(BSBBook);
+    end;
 }

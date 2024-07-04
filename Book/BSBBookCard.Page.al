@@ -98,4 +98,21 @@ page 50100 "BSB Book Card"
             systempart(Notes; Notes) { ApplicationArea = Notes; }
         }
     }
+    actions
+    {
+        area(Processing)
+        {
+            action(HandleBookProcess)
+            {
+                Caption = 'Start Book Process';
+
+                trigger OnAction()
+                var
+                    BSBHandleBookProcess: Codeunit "BSB Handle Book Process";
+                begin
+                    BSBHandleBookProcess.HandleBookProcess(Rec);
+                end;
+            }
+        }
+    }
 }

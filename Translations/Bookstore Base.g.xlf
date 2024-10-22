@@ -198,6 +198,16 @@
           <note from="Developer" annotates="general" priority="2">%</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page BSB Book List - Control No. of Pages - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 2834728084 - Action 2000777015 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Books</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BSB Book List - Action CreateDemoBooks - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2834728084 - Action 1984694292 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete Books</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page BSB Book List - Action DeleteDemoBooks - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 3135438230 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>None</source>
           <note from="Developer" annotates="general" priority="2"></note>

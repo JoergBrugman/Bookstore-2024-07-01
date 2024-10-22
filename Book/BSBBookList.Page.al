@@ -48,4 +48,33 @@ page 50101 "BSB Book List"
         }
     }
 
+    actions
+    {
+        area(Promoted)
+        {
+            actionref(CreateDemoBooks_Ref; CreateDemoBooks) { }
+        }
+        area(Processing)
+        {
+            action(CreateDemoBooks)
+            {
+                Caption = 'Create Books';
+                Image = CreateDocuments;
+                RunObject = codeunit "BSB Create Books";
+            }
+            action(DeleteDemoBooks)
+            {
+                Caption = 'Delete Books';
+                Image = Delete;
+
+                trigger OnAction()
+                var
+                    BSBBook: Record "BSB Book";
+                begin
+                    CurrPage.SetSelectionFilter(BSBBook);
+                    BSBBook.DeleteAll();
+                end;
+            }
+        }
+    }
 }

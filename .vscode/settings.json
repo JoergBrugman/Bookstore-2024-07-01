@@ -11,5 +11,6 @@
         "${UICop}",
         "${PerTenantExtensionCop}"
     ],
-    "editor.snippetSuggestions": "bottom"
+    "editor.snippetSuggestions": "bottom",
+    "workbench.colorTheme": "Default High Contrast"
 }

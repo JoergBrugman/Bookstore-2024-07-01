@@ -3,12 +3,13 @@ namespace GUA.Bookstore.Book;
 enum 50100 "BSB Book Type" implements "BSB Book Type Process"
 {
     Extensible = true;
-    DefaultImplementation = "BSB Book Type Process" = "BSB Default Impl.";
+    // DefaultImplementation = "BSB Book Type Process" = "BSB Default Impl.";
+    UnknownValueImplementation = "BSB Book Type Process" = "BSB Default Impl.";
 
     value(0; " ")
     {
         Caption = 'None';
-        // Implementation = "BSB Book Type Process" = "BSB Default Impl.";
+        Implementation = "BSB Book Type Process" = "BSB Default Impl.";
     }
     value(1; Hardcover)
     {

@@ -111,7 +111,17 @@ table 50100 "BSB Book"
     end;
 
     trigger OnDelete()
+    var
+        IsHandled: Boolean;
     begin
+        // Handled-Event-Pattern: 
+        // ----------------------
+        // Wird immer dann genutzt, wenn nachfolgender Code ganz oder teilweise 
+        // nicht ausgeführt werden soll.
+        OnBeforeOnDelete(Rec, xRec, IsHandled);
+        if IsHandled then
+            exit;
+
         Error(OnDeleteBookErr);
     end;
 
@@ -144,5 +154,10 @@ table 50100 "BSB Book"
         BSBBook.Get(BookNo);
         // Page.RunModal(Page::"BSB Book Card",BSBBook);
         ShowCard(BSBBook);
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeOnDelete(var Rec: Record "BSB Book"; var xRec: Record "BSB Book"; var IsHandled: Boolean)
+    begin
     end;
 }

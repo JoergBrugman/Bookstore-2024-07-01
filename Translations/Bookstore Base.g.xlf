@@ -13,11 +13,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table BSB Book - NamedType OnDeleteBookErr</note>
         </trans-unit>
-        <trans-unit id="Table 3249233238 - NamedType 4290721330" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This is a test</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table BSB Book - NamedType TestJBXXXXXXXXTxt</note>
-        </trans-unit>
         <trans-unit id="Table 3249233238 - Field 2842729223 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Author</source>
           <note from="Developer" annotates="general" priority="2"></note>
